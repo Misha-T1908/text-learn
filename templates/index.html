@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Text Explainer</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>AI Text Generator & Explainer</h1>
+
+        <div class="controls">
+            <label for="topic">Topic:</label>
+            <input type="text" id="topic" value="the future of space travel">
+
+            <label for="difficulty">Difficulty:</label>
+            <select id="difficulty">
+                <option value="easy">Easy (A2)</option>
+                <option value="medium" selected>Medium (B1/B2)</option>
+                <option value="hard">Hard (C1/C2)</option>
+            </select>
+
+            <label for="length">Length:</label>
+            <select id="length">
+                <option value="one sentence">One Sentence</option>
+                <option value="a short paragraph" selected>Short Paragraph</option>
+                <option value="two paragraphs">Two Paragraphs</option>
+            </select>
+
+            <button id="generateBtn">Generate Text</button>
+        </div>
+
+        <div class="content-area">
+            <h2>Generated Text:</h2>
+            <div id="generatedTextOutput" class="selectable-text">
+                <p>Your generated text will appear here...</p>
+            </div>
+        </div>
+
+        <div class="explanation-area">
+            <h2>Selection Details:</h2>
+            <p><strong>Selected:</strong> <em id="selectedTextDisplay">-</em></p>
+            
+            <label for="translateLang">Translate to:</label>
+            <select id="translateLang">
+                <option value="Spanish">Spanish</option>
+                <option value="French">French</option>
+                <option value="German">German</option>
+                <option value="Japanese">Japanese</option>
+                <option value="Chinese">Chinese</option>
+                <option value="Ukrainian">Ukrainian</option> {/* <-- ADDED --> */}
+                <option value="Russian">Russian</option>   {/* <-- ADDED --> */}
+                {/* Add more languages as needed */}
+            </select>
+            <button id="getDetailsBtn" disabled>Get Explanation & Translation</button>
+
+            <div id="explanationOutput">
+                <h3>Explanation:</h3>
+                <p>Select text above to get its explanation.</p>
+            </div>
+            <div id="translationOutput">
+                <h3>Translation:</h3>
+                <p>Select text and choose a language to get its translation.</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
